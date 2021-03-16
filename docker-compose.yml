@@ -1,0 +1,17 @@
+version: "3"
+services:
+  api:
+    image: vp-api-docker-image
+    ports:
+      - 8080:8080
+    links:
+      - vp-api-database
+    depends_on:
+      - vp-api-database
+  vp-api-database:
+    image: "mongo"
+    ports:
+      - 27017:27017
+    container_name: "vp-api-database"
+    volumes:
+      - /home/sinoed/data/db:/data/db
