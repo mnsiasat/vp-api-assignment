@@ -11,3 +11,5 @@
 4. Start the application
     ```
     docker-compose up
+
+Note: MongoDB instance already included in docker container, however, I didn't add logic to pre-populate table so feel free to add data via curl command on API or through the vp-web-assignment
