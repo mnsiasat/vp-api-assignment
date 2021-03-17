@@ -1,8 +1,11 @@
 package com.vp.api.service;
 
 
+import com.vp.api.controller.MoviesController;
 import com.vp.api.model.Movie;
 import com.vp.api.repository.MoviesRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -29,9 +32,7 @@ public class MoviesService {
                     if(newMovie.getImage() != null){
                         movie.setImage(newMovie.getImage());
                     }
-                    if(newMovie.isWatched()){
-                        movie.setWatched(newMovie.isWatched());
-                    }
+                    movie.setWatched(newMovie.isWatched());
                     if(newMovie.getTitle()!= null){
                         movie.setTitle(newMovie.getTitle());
                     }
