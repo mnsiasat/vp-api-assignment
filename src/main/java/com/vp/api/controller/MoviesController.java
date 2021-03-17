@@ -22,7 +22,7 @@ public class MoviesController {
         this.service = moviesService;
     }
 
-    @GetMapping(produces = "application/json")
+    @GetMapping()
     public ResponseEntity getMovies() {
         ResponseEntity responseEntity = null;
         try {
@@ -36,7 +36,7 @@ public class MoviesController {
         return responseEntity;
     }
 
-    @PostMapping(produces = "application/json")
+    @PostMapping(consumes = "application/json")
     public ResponseEntity addMovie(@RequestBody Movie newMovie) {
         ResponseEntity responseEntity = null;
 
@@ -52,7 +52,7 @@ public class MoviesController {
         return responseEntity;
     }
 
-    @PutMapping("/movies/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity updateMovie(@RequestBody Movie updateRequest, @PathVariable String id) {
         ResponseEntity responseEntity = null;
 
@@ -71,7 +71,7 @@ public class MoviesController {
         return responseEntity;
     }
 
-    @DeleteMapping("/movies/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity deleteMovie(@PathVariable String id) {
         ResponseEntity responseEntity = null;
 
@@ -86,7 +86,7 @@ public class MoviesController {
         return responseEntity;
     }
 
-    @GetMapping("/movies/watched")
+    @GetMapping("/watched")
     public ResponseEntity getWatchedMovies() {
         ResponseEntity responseEntity = null;
         try {
@@ -99,13 +99,4 @@ public class MoviesController {
         }
         return responseEntity;
     }
-
-    /**
-     * TODO:
-     *  POST /movies
-     *  GET /movies all movies
-     *  PUT /movies/{id} Mark movie as watched
-     *  DELETE /movies/{id} Remove movie
-     *  GET /movies/watched Watched movies
-     * */
 }
